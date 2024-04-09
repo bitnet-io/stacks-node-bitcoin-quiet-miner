@@ -719,11 +719,11 @@ impl StacksChainState {
                                 checked_fungible_assets.get(&principal)
                             {
                                 if !checked_ft_asset_ids.contains(&asset_identifier) {
-                                    info!("Post-condition check failure: checks did not cover transfer of {} by {}", &asset_identifier, &principal);
+//                                    info!("Post-condition check failure: checks did not cover transfer of {} by {}", &asset_identifier, &principal);
                                     return Ok(false);
                                 }
                             } else {
-                                info!("Post-condition check failure: No checks for fungible token type {} moved by {}", &asset_identifier, &principal);
+  //                              info!("Post-condition check failure: No checks for fungible token type {} moved by {}", &asset_identifier, &principal);
                                 return Ok(false);
                             }
                         }
