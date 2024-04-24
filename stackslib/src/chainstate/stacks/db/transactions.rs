@@ -674,7 +674,7 @@ impl StacksChainState {
                         .get_nonfungible_tokens(&account_principal, &asset_id)
                         .unwrap_or(&empty_assets);
                     if !condition_code.check(asset_value, assets_sent) {
-                        info!("Post-condition check failure on non-fungible asset {} owned by {}: {:?} {:?}", &asset_id, account_principal, &asset_value, condition_code);
+//                        info!("Post-condition check failure on non-fungible asset {} owned by {}: {:?} {:?}", &asset_id, account_principal, &asset_value, condition_code);
                         return Ok(false);
                     }
 
