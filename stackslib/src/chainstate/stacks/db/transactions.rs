@@ -1225,12 +1225,12 @@ impl StacksChainState {
                                     .sub(&cost_before)
                                     .expect("BUG: total block cost decreased");
 
-                                warn!(
-                                    "Runtime error in contract analysis for {}: {:?}",
-                                    &contract_id, &other_error;
-                                    "txid" => %tx.txid(),
-                                    "AST rules" => %format!("{:?}", &ast_rules)
-                                );
+//                                warn!(
+  //                                  "Runtime error in contract analysis for {}: {:?}",
+    //                                &contract_id, &other_error;
+      //                              "txid" => %tx.txid(),
+        //                            "AST rules" => %format!("{:?}", &ast_rules)
+          //                      );
                                 let receipt = StacksTransactionReceipt::from_analysis_failure(
                                     tx.clone(),
                                     analysis_cost,
