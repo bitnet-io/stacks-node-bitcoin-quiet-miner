@@ -194,10 +194,10 @@ impl AttachmentsDownloader {
                     if context.attachments_batch.retry_count
                         < context.connection_options.max_attachment_retry_count
                     {
-//                        info!(
-  //                          "Atlas: re-enqueuing batch {:?} for retry",
-    //                        context.attachments_batch
-      //                  );
+                        info!(
+                            "Atlas: re-enqueuing batch {:?} for retry",
+                            context.attachments_batch
+                        );
                         self.priority_queue.push(context.attachments_batch.clone());
                     } else {
                         info!(
@@ -469,7 +469,7 @@ impl AttachmentsBatchStateContext {
                 }
 
                 if sources.is_empty() {
-        //            warn!("Atlas: could not find a peer including attachment in its inventory");
+                    warn!("Atlas: could not find a peer including attachment in its inventory");
                     continue;
                 }
 

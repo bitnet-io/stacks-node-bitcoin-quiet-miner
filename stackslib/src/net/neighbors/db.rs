@@ -228,11 +228,11 @@ pub trait NeighborWalkDB {
         } else {
             let any_neighbors = Self::pick_walk_neighbors(network, (NUM_NEIGHBORS as u64) * 2, 0)
                 .map_err(|e| {
-//                info!(
-//                    "{:?}: Failed to load any initial walk neighbors: {:?}",
-//                    network.get_local_peer(),
-//                   &e
-//                );
+                info!(
+                    "{:?}: Failed to load any initial walk neighbors: {:?}",
+                    network.get_local_peer(),
+                    &e
+                );
                 e
             })?;
 

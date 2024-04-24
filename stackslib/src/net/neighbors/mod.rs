@@ -34,12 +34,10 @@ use crate::util_lib::db::{DBConn, DBTx, Error as db_error};
 pub mod comms;
 pub mod db;
 pub mod neighbor;
+pub mod rpc;
 pub mod walk;
 
-pub use comms::{
-    NeighborComms, NeighborCommsMessageIterator, NeighborCommsRequest, PeerNetworkComms,
-    ToNeighborKey,
-};
+pub use comms::{NeighborComms, PeerNetworkComms, ToNeighborKey};
 pub use db::{NeighborReplacements, NeighborWalkDB, PeerDBNeighborWalk};
 pub use walk::{NeighborPingback, NeighborWalk, NeighborWalkResult};
 
@@ -138,10 +136,10 @@ impl PeerNetwork {
                     return Ok(w);
                 }
                 Err(e) => {
-//                    info!(
-//                        "{:?}: failed to begin outbound walk ({:?}); trying pingback walk",
-//                        &self.local_peer, &e
-//                    );
+                    info!(
+                        "{:?}: failed to begin outbound walk ({:?}); trying pingback walk",
+                        &self.local_peer, &e
+                    );
                     return NeighborWalk::instantiate_walk_from_pingback(
                         self.get_neighbor_walk_db(),
                         self.get_neighbor_comms(),
